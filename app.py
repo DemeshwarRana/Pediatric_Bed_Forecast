@@ -177,4 +177,4 @@ with st.expander("📊 Explore Historical Air Quality Data"):
     # This matches the filename in your folder exactly
     df_history = pd.read_csv("merged_pollution_data.csv")
     st.write("Review the underlying pollutants used for this research.")
-    st.dataframe(df_history.head(100), use_container_width=True)
+    st.dataframe(df_history, use_container_width=True)
