@@ -173,7 +173,7 @@ with col_map:
     st.plotly_chart(fig_map, use_container_width=True)
     # --- FINAL SECTION: RAW DATA ---
 st.markdown("---")
-with st.expander("📊 Explore Historical Air Quality Data"):
+with st.expander("📊 Explore Historical Air Quality Data",expanded=True):
     # This matches the filename in your folder exactly
     df_history = pd.read_csv("merged_pollution_data.csv")
     st.write("Review the underlying pollutants used for this research.")
