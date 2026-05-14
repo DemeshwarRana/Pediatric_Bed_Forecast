@@ -94,17 +94,32 @@ df_trend = pd.DataFrame({
 })
 
 fig_trend = go.Figure()
-fig_trend.add_trace(go.Scatter(x=df_trend['Hour'], y=df_trend['PM25_Lag'], name="PM2.5 Lag", 
-                         line=dict(color='#1a4a7a', width=2, shape='spline'), fill='tozeroy'))
-fig_trend.add_trace(go.Scatter(x=df_trend['Hour'], y=df_trend['Admissions'], name="Admissions", 
-                         line=dict(color='#d67d27', dash='dot', shape='spline'), yaxis="y2"))
+fig_trend.add_trace(go.Scatter(
+    x=df_trend['Hour'], 
+    y=df_trend['PM25_Lag'], 
+    name="PM2.5 Lag",
+    hovertemplate="<b>%{fullData.name}</b><br>Hour: %{x}<br>Value: %{y:.2f} µg/m³<extra></extra>",
+    line=dict(color='#1a4a7a', width=2, shape='spline'), 
+    fill='tozeroy'
+))
+
+# Update Line 99 for Admissions
+fig_trend.add_trace(go.Scatter(
+    x=df_trend['Hour'], 
+    y=df_trend['Admissions'], 
+    name="Admissions",
+    # Different units for the secondary axis
+    hovertemplate="<b>%{fullData.name}</b><br>Hour: %{x}<br>Admissions: %{y:.0f}<extra></extra>",
+    line=dict(color='#d67d27', dash='dot', shape='spline'), 
+    yaxis='y2'
+))
 fig_trend.add_vline(x=current_hour_of_week, line_width=3, line_dash="dash", line_color="red")
 fig_trend.add_annotation(
     x=current_hour_of_week, 
     y=280, 
-    text="<b>TODAY / NOW</b>", # Using HTML tags for bold
+    text="<b>TODAY / NOW</b>",
     showarrow=False, 
-    font=dict(color="red", size=12) # Removed 'bold=True'
+    font=dict(color="red", size=12)
 )
 
 fig_trend.update_layout(
