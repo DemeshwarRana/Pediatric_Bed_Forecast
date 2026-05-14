@@ -6,7 +6,7 @@ import plotly.express as px
 import os
 import datetime
 import numpy as np
-
+np.random.seed(42)
 st.set_page_config(page_title="Strategic Bed Forecast", layout="wide")
 st.markdown("""
     <style>
