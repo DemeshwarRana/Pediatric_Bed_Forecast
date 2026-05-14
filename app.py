@@ -89,8 +89,8 @@ weekend_factor = np.where(hours > 120, 0.75, 1.0)
 
 df_trend = pd.DataFrame({
     'Hour': hours,
-    'PM25_Lag': (pollution_base + pollution_peaks)*(pollution_scale/100),
-    'Admissions': (35 + np.roll(pollution_peaks, 48) * 0.4 + np.random.normal(0, 2, 168)) * admission_scale
+    'PM25_Lag': (pollution_base + pollution_peaks)*(pollution_scale/60),
+    'Admissions': (35 + np.roll(pollution_peaks, 48) * 0.4)* (admission_scale/10)
 })
 
 fig_trend = go.Figure()
