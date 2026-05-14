@@ -107,7 +107,8 @@ fig_trend.add_trace(go.Scatter(
     y=df_trend['Admissions'],
     name='Admissions',
     yaxis='y2',
-    line=dict(color='#d35400', dash='dot', width=2)
+    line=dict(color='#d35400', dash='dot', width=2),
+    hovertemplate="<b>Forecasted Beds</b>: %{y:.0f}<extra></extra>"
 ))
 fig_trend.add_vline(x=current_hour_of_week, line_width=3, line_dash="dash", line_color="red")
 fig_trend.add_annotation(
