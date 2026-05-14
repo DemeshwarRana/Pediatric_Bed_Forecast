@@ -103,12 +103,11 @@ fig_trend.add_trace(go.Scatter(
     fill='tozeroy'
 ))
 fig_trend.add_trace(go.Scatter(
-    x=df_trend['Hour'], 
-    y=df_trend['Admissions'], 
-    name="Admissions",
-    hovertemplate="<b>Predicted Admissions</b><br>Beds: %{y:.0f}<br><i>Factors: PM2.5, SO2, Temp, Humidity</i><extra></extra>",
-    line=dict(color='#d67d27', dash='dot', shape='spline'), 
-    yaxis='y2'
+    x=df_trend['Hour'],
+    y=df_trend['Admissions'],
+    name='Admissions',
+    yaxis='y2',
+    line=dict(color='#d35400', dash='dot', width=2)
 ))
 fig_trend.add_vline(x=current_hour_of_week, line_width=3, line_dash="dash", line_color="red")
 fig_trend.add_annotation(
