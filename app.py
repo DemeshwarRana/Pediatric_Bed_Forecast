@@ -102,14 +102,11 @@ fig_trend.add_trace(go.Scatter(
     line=dict(color='#1a4a7a', width=2, shape='spline'), 
     fill='tozeroy'
 ))
-
-# Update Line 99 for Admissions
 fig_trend.add_trace(go.Scatter(
     x=df_trend['Hour'], 
     y=df_trend['Admissions'], 
     name="Admissions",
-    # Different units for the secondary axis
-    hovertemplate="<b>%{fullData.name}</b><br>Hour: %{x}<br>Admissions: %{y:.0f}<extra></extra>",
+    hovertemplate="<b>Predicted Admissions</b><br>Total Beds: %{y:.0f}<br><i>Driven by PM2.5 & SO2</i><extra></extra>"
     line=dict(color='#d67d27', dash='dot', shape='spline'), 
     yaxis='y2'
 ))
