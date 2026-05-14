@@ -80,18 +80,19 @@ st.subheader("48-Hour Ripple: How Air Quality Predicts Pediatric Bed Surges.")
 now = datetime.datetime.now()
 current_weekday = now.weekday()
 current_hour_of_week = (current_weekday * 24) + now.hour
-pollution_scale = (pm25 + so2) / 60 
+pollution_scale = (pm25) / 60 
 admission_scale = pollution_scale + (1 - temp/45) + (1 - rh/100)
 hours = np.arange(168)
 pollution_base = 60 + np.sin(hours / 4) * 10 + np.random.normal(0, 5, 168)
 pollution_peaks = np.array([30 if h in [20, 68, 116, 150] else 0 for h in hours])
-df_trend['PM25_Lag'] = (pollution_base * pollution_scale) + pollution_peaks
-df_trend['Admissions'] = admission_base * admission_scale
 weekend_factor = np.where(hours > 120, 0.75, 1.0) 
 
 df_trend = pd.DataFrame({
     'Hour': hours,
-    'PM25_Lag': (pollution_base * pollution_scale)+pollution_peaks,
+    # This line MUST ONLY use pollution_scale
+    'PM25_Lag': (pollution_base * pollution_scale) + pollution_peaks,
+    
+    # This line MUST ONLY use admission_scale
     'Admissions': (35 + np.roll(pollution_peaks, 48) * 0.4 + np.random.normal(0, 2, 168)) * admission_scale
 })
 
