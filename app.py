@@ -80,7 +80,7 @@ st.subheader("48-Hour Ripple: How Air Quality Predicts Pediatric Bed Surges.")
 now = datetime.datetime.now()
 current_weekday = now.weekday()
 current_hour_of_week = (current_weekday * 24) + now.hour
-pollution_scale = (pm25) / 60 
+pollution_scale = (pm25+so2) / 60 
 admission_scale = pollution_scale + (1 - temp/45) + (1 - rh/100)
 hours = np.arange(168)
 pollution_base = 60 + np.sin(hours / 4) * 10 + np.random.normal(0, 5, 168)
