@@ -81,7 +81,7 @@ now = datetime.datetime.now()
 current_weekday = now.weekday()
 current_hour_of_week = (current_weekday * 24) + now.hour
 pollution_scale = pm25 / 60 
-admission_scale = (pm25 + so2) / 60
+admission_scale = ((pm25 + so2) / 60) + (1 - temp/40) + (1 - humidity/100)
 hours = np.arange(168)
 pollution_base = 60 + np.sin(hours / 4) * 10 + np.random.normal(0, 5, 168)
 pollution_peaks = np.array([30 if h in [20, 68, 116, 150] else 0 for h in hours])
@@ -106,7 +106,7 @@ fig_trend.add_trace(go.Scatter(
     x=df_trend['Hour'], 
     y=df_trend['Admissions'], 
     name="Admissions",
-    hovertemplate="<b>Predicted Admissions</b><br>Total Beds: %{y:.0f}<br><i>Driven by PM2.5 & SO2</i><extra></extra>",
+    hovertemplate="<b>Predicted Admissions</b><br>Beds: %{y:.0f}<br><i>Factors: PM2.5, SO2, Temp, Humidity</i><extra></extra>",
     line=dict(color='#d67d27', dash='dot', shape='spline'), 
     yaxis='y2'
 ))
