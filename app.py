@@ -106,7 +106,7 @@ fig_trend.add_trace(go.Scatter(
     x=df_trend['Hour'], 
     y=df_trend['Admissions'], 
     name="Admissions",
-    hovertemplate="<b>Predicted Admissions</b><br>Total Beds: %{y:.0f}<br><i>Driven by PM2.5 & SO2</i><extra></extra>"
+    hovertemplate="<b>Predicted Admissions</b><br>Total Beds: %{y:.0f}<br><i>Driven by PM2.5 & SO2</i><extra></extra>",
     line=dict(color='#d67d27', dash='dot', shape='spline'), 
     yaxis='y2'
 ))
