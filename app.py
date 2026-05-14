@@ -101,9 +101,6 @@ fig_trend.add_trace(go.Scatter(
     hovertemplate="<b>Pollution</b>: %{y:.1f} µg/m³<extra></extra>",
     line=dict(color='#1a4a7a', width=2, shape='spline'),
     fill='tozeroy'
-)),
-    line=dict(color='#1a4a7a', width=2, shape='spline'), 
-    fill='tozeroy'
 ))
 fig_trend.add_trace(go.Scatter(
     x=df_trend['Hour'],
