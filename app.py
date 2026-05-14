@@ -125,8 +125,8 @@ fig_trend.update_layout(
         tickvals=[0, 24, 48, 72, 96, 120, 144],
         ticktext=['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     ),
-    yaxis=dict(title="PM2.5 (µg/m³)",autorange=True),
-    yaxis2=dict(title="Admissions", anchor="x", overlaying="y", side="right", range=[0, 150]),
+    yaxis=dict(title="PM2.5 (µg/m³)",autorange=True,fixedrange=False),
+    yaxis2=dict(title="Admissions", anchor="x", overlaying="y", side="right",autorange=True),
     legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
 )
 
