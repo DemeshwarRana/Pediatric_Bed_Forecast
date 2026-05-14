@@ -98,7 +98,10 @@ fig_trend.add_trace(go.Scatter(
     x=df_trend['Hour'], 
     y=df_trend['PM25_Lag'], 
     name="PM2.5 Lag",
-    hovertemplate="<b>%{fullData.name}</b><br>Hour: %{x}<br>Value: %{y:.2f} µg/m³<extra></extra>",
+    hovertemplate="<b>Pollution</b>: %{y:.1f} µg/m³<extra></extra>",
+    line=dict(color='#1a4a7a', width=2, shape='spline'),
+    fill='tozeroy'
+)),
     line=dict(color='#1a4a7a', width=2, shape='spline'), 
     fill='tozeroy'
 ))
