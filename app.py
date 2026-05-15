@@ -6,7 +6,6 @@ import plotly.express as px
 import os
 import datetime
 import numpy as np
-model=joblib.load('pediatric_demand_model.pkl')
 np.random.seed(42)
 st.set_page_config(page_title="Strategic Bed Forecast", layout="wide")
 st.markdown("""
